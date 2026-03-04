@@ -19,6 +19,7 @@ class Next(ftc: FTC) : EasyAutoScope<Next>(ftc) {
     val control by library("1.0.0")
     val bindings by library("1.0.1")
 
+    val control2 by library("0.0.2")
     private fun extension(version: String) = dependency { name ->
         EasyAutoDependency(
             group = "dev.nextftc.extensions",

@@ -156,6 +156,7 @@ ftc {
         implementation(ftc)
         implementation(bindings)
         implementation(control)
+        implementation(control2)
 
         // extensions
         implementation(pedro)
