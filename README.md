@@ -150,18 +150,26 @@ ftc {
         implementation(MercurialFTC)
     }
 
-    // the next block contains next ftc dependencies
-    next {
+    // the next.v1 block contains nextftc v1 dependencies
+    next.v1 {
         // core libraries
         implementation(ftc)
         implementation(bindings)
         implementation(control)
-        implementation(control2)
 
         // extensions
         implementation(pedro)
         implementation(roadrunner)
         implementation(fateweaver)
+    }
+  
+    // the next.v2 block contains nextftc v2 dependencies
+    // note that while nextftc v2 is in beta, a version is required
+    next.v2("0.1.0") {
+        // core libraries
+        implementation(control)
+        implementation(hardware)
+        implementation(robot)
     }
 
     // the pedro block contains pedro pathing dependencies
