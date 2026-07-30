@@ -35,10 +35,11 @@ class Next(val ftcProject: FTC) : EasyAutoScope<Next>(ftcProject) {
         val fateweaver by extension("1.0.0")
     }
 
+    val v2 = NextV2("0.1.0")
     fun v2(version: String) = NextV2(version)
 
     inner class NextV2 internal constructor(val version: String) : EasyAutoScope<NextV2>(ftcProject) {
-        private fun library(version: String, conflict: EasyAutoDependency? = null) = dependency { name ->
+        private fun library(conflict: EasyAutoDependency? = null) = dependency { name ->
             EasyAutoDependency(
                 group = "dev.nextftc.v2",
                 artifact = name,
@@ -53,8 +54,8 @@ class Next(val ftcProject: FTC) : EasyAutoScope<Next>(ftcProject) {
             }
         }
 
-        val control by library(version, v1.control)
-        val hardware by library(version, v1.hardware)
-        val robot by library(version, v1.ftc)
+        val control by library(v1.control)
+        val hardware by library(v1.hardware)
+        val robot by library(v1.ftc)
     }
 }
