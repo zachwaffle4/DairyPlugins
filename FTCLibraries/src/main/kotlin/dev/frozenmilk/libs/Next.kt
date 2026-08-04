@@ -36,19 +36,18 @@ class Next(val ftcProject: FTC) : EasyAutoScope<Next>(ftcProject) {
     }
 
     val v2 = NextV2("0.1.0")
-    fun v2(version: String) = NextV2(version)
 
     inner class NextV2 internal constructor(val version: String) : EasyAutoScope<NextV2>(ftcProject) {
         private fun library(conflict: EasyAutoDependency? = null) = dependency { name ->
             EasyAutoDependency(
                 group = "dev.nextftc.v2",
                 artifact = name,
-                version = version,
+                defaultVersion = { version },
             ) {
                 conflict?.let {
                     incompatibleWith(
                         it,
-                        "nextftc v2 is incompatible with nextftc v1"
+                        "NextFTC v2 is incompatible with NextFTC v1"
                     )
                 }
             }
