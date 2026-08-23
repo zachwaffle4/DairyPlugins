@@ -164,8 +164,7 @@ ftc {
     }
   
     // the next.v2 block contains nextftc v2 dependencies
-    // note that while nextftc v2 is in beta, a version is required
-    next.v2("0.1.0") {
+    next.v2 {
         // core libraries
         implementation(control)
         implementation(hardware)
