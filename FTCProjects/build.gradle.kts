@@ -30,7 +30,7 @@ dairyPublishing {
 
 dependencies {
     //noinspection AndroidGradlePluginVersion
-    implementation("com.android.tools.build:gradle:8.7.0")
+    implementation("com.android.tools.build:gradle:8.13.2")
     implementation("dev.frozenmilk:FTCLibraries:${dairyPublishing.version}")
 }
 

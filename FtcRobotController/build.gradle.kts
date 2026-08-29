@@ -2,11 +2,11 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-version = "11.1.0"
+version = "11.2.1"
 
 plugins {
     //noinspection AndroidGradlePluginVersion
-    id("com.android.library") version "8.7.0"
+    id("com.android.library") version "8.13.2"
     id("org.gradle.maven-publish")
     id("dev.frozenmilk.ftc-libraries")
     id("dev.frozenmilk.doc")

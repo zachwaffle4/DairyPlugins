@@ -6,7 +6,7 @@ import dev.frozenmilk.easyautolibraries.EasyAutoScope
 
 @Suppress("unused")
 class FateWeaver(ftc: FTC) : EasyAutoScope<FateWeaver>(ftc)  {
-    var version = "0.3.3"
+    var version = "0.4.1"
 
     private val dependency = dependency { name ->
         EasyAutoDependency(

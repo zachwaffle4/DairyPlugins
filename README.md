@@ -36,6 +36,10 @@ repositories {
 
 [Examples can be found in the Templates repository](https://github.com/Dairy-Foundation/Templates)
 
+These plugins target FTC SDK 11.2.1 and bundle Android Gradle Plugin 8.13.2,
+which requires Gradle 8.13 or later in your project. This matches the toolchain
+used by the official FtcRobotController repository as of SDK 11.2.
+
 ## FtcRobotController
 This is not a plugin, rather it is a portable version of the FtcRobotController
 module from the [official FtcRobotController repository](https://github.com/FIRST-Tech-Challenge/FtcRobotController)
@@ -45,7 +49,7 @@ It is recommended to get this via applying the `TeamCode` plugin below.
 otherwise:
 ```kt
 dependencies {
-    implementation("com.qualcomm.ftcrobotcontroller:FtcRobotController:11.1.0")
+    implementation("com.qualcomm.ftcrobotcontroller:FtcRobotController:11.2.1")
 }
 ```
 
@@ -70,7 +74,7 @@ A plugin that makes it easy to set up FTC related libraries, uses
 
 ```kt
 plugins {
-    id("dev.frozenmilk.ftc-libraries") version "11.1.0-1.1.1"
+    id("dev.frozenmilk.ftc-libraries") version "11.2.1-1.1.1"
 }
 ```
 
@@ -95,10 +99,10 @@ ftc {
         // this adds RobotCore to implementation
         implementation(RobotCore)
         // we can also specify a version
-        implementation(FtcCommon("11.1.0"))
+        implementation(FtcCommon("11.2.1"))
 
         // the sdk block specifically has a shared version
-        version = "11.1.0"
+        version = "11.2.1"
         // once you change it,
         // all un-specified versions for sdk dependencies will have this version
         // note that changing it won't affect previous actions
@@ -106,7 +110,7 @@ ftc {
         // the sdk block also has a TeamCode function
         TeamCode()
         // or:
-        TeamCode("11.1.0")
+        TeamCode("11.2.1")
         // these functions are recommended for use in team code modules,
         // as they provide all the dependencies for you, rather than manually
         // specifying it
@@ -241,11 +245,11 @@ See the templates repository for examples.
 
 ```kt
 plugins {
-    id("dev.frozenmilk.teamcode") version "11.1.0-1.1.1"
+    id("dev.frozenmilk.teamcode") version "11.2.1-1.1.1"
 }
 ```
 
-[You can find the latest verion here](https://repo.dairy.foundation/#/releases/dev/frozenmilk/FTCProjects)
+[You can find the latest version here](https://repo.dairy.foundation/#/releases/dev/frozenmilk/FTCProjects)
 
 ## Android-Library
 A plugin that sets up android FTC library projects using FTCLibraries, allowing
@@ -256,11 +260,11 @@ See the templates repository for examples.
 
 ```kt
 plugins {
-    id("dev.frozenmilk.android-library") version "11.1.0-1.1.1"
+    id("dev.frozenmilk.android-library") version "11.2.1-1.1.1"
 }
 ```
 
-[You can find the latest verion here](https://repo.dairy.foundation/#/releases/dev/frozenmilk/FTCProjects)
+[You can find the latest version here](https://repo.dairy.foundation/#/releases/dev/frozenmilk/FTCProjects)
 
 ## JVM-Library
 A plugin that sets up non-android FTC library projects.
@@ -270,11 +274,11 @@ See the templates repository for examples.
 
 ```kt
 plugins {
-    id("dev.frozenmilk.jvm-library") version "11.1.0-1.1.1"
+    id("dev.frozenmilk.jvm-library") version "11.2.1-1.1.1"
 }
 ```
 
-[You can find the latest verion here](https://repo.dairy.foundation/#/releases/dev/frozenmilk/JVMProjects)
+[You can find the latest version here](https://repo.dairy.foundation/#/releases/dev/frozenmilk/JVMProjects)
 
 ## Publish
 Used to set up publishing with a library to the Dairy maven repository.
@@ -291,7 +295,7 @@ plugins {
 
 See full examples in the Templates repository.
 
-[You can find the latest verion here](https://repo.dairy.foundation/#/releases/dev/frozenmilk/DairyPublishing)
+[You can find the latest version here](https://repo.dairy.foundation/#/releases/dev/frozenmilk/DairyPublishing)
 
 
 ## Doc
@@ -328,7 +332,7 @@ org.jetbrains.dokka.experimental.gradle.pluginMode.noWarn=true
 
 See full examples in the Templates repository.
 
-[You can find the latest verion here](https://repo.dairy.foundation/#/releases/dev/frozenmilk/DairyPublishing)
+[You can find the latest version here](https://repo.dairy.foundation/#/releases/dev/frozenmilk/DairyPublishing)
 
 ## BuildMetaData
 
@@ -369,4 +373,4 @@ object MyLibraryBuildMetaData {
 }
 ```
 
-[You can find the latest verion here](https://repo.dairy.foundation/#/releases/dev/frozenmilk/BuildMetaData)
+[You can find the latest version here](https://repo.dairy.foundation/#/releases/dev/frozenmilk/BuildMetaData)

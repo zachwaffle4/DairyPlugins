@@ -7,11 +7,16 @@ import org.gradle.api.provider.Property
 import org.gradle.api.publish.plugins.PublishingPlugin
 import org.gradle.api.reflect.HasPublicType
 import org.gradle.api.reflect.TypeOf
+import org.gradle.process.ExecOperations
 import java.io.ByteArrayOutputStream
 import java.net.URI
+import javax.inject.Inject
 
 @Suppress("MemberVisibilityCanBePrivate")
 abstract class DairyPublishingExtensionImpl (private val project: Project) : DairyPublishingExtension, HasPublicType {
+    @get:Inject
+    protected abstract val execOperations: ExecOperations
+
     override fun getPublicType(): TypeOf<DairyPublishingExtension> = TypeOf.typeOf(DairyPublishingExtension::class.java)/**
      * the directory that contains the `.git` directory, by default this is the root project directory
      */
@@ -89,7 +94,7 @@ abstract class DairyPublishingExtensionImpl (private val project: Project) : Dai
         project.run {
             val clean = run {
                 val sout = ByteArrayOutputStream()
-                exec {it.run {
+                execOperations.exec { it.run {
                     workingDir = gitDir.get().asFile
                     standardOutput = sout
                     commandLine(gitExecutable.get(), "status", "--porcelain")
@@ -109,7 +114,7 @@ abstract class DairyPublishingExtensionImpl (private val project: Project) : Dai
 
             val tags = run {
                 val out = ByteArrayOutputStream()
-                exec {it.run {
+                execOperations.exec { it.run {
                     workingDir = gitDir.get().asFile
                     standardOutput = out
                     commandLine(gitExecutable.get(), "tag", "--points-at", "HEAD")
@@ -120,7 +125,7 @@ abstract class DairyPublishingExtensionImpl (private val project: Project) : Dai
             _snapshot = if (tags.isBlank()) {
                 val hash = run {
                     val sout = ByteArrayOutputStream()
-                    exec {it.run {
+                    execOperations.exec { it.run {
                         workingDir = gitDir.get().asFile
                         standardOutput = sout
                         commandLine(gitExecutable.get(), "rev-parse", "--short", "HEAD")
