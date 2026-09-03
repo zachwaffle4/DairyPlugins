@@ -35,9 +35,9 @@ class Next(val ftcProject: FTC) : EasyAutoScope<Next>(ftcProject) {
         val fateweaver by extension("1.0.0")
     }
 
-    val v2 = NextV2("0.1.0")
+    val v2 = NextV2("0.2.0")
 
-    inner class NextV2 internal constructor(val version: String) : EasyAutoScope<NextV2>(ftcProject) {
+    inner class NextV2 internal constructor(var version: String) : EasyAutoScope<NextV2>(ftcProject) {
         private fun library(conflict: EasyAutoDependency? = null) = dependency { name ->
             EasyAutoDependency(
                 group = "dev.nextftc.v2",
